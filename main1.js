@@ -1,12 +1,12 @@
 window.addEventListener('DOMContentLoaded', () => {
-  const email = localStorage.getItem('email');
+  const userStr = localStorage.getItem('user');
+  const user = userStr ? JSON.parse(userStr) : null;
   const path = location.pathname;
 
-  if (path.includes('index') && email) {
+  if (path.includes('index') && user?.email) {
     location.href = 'user1.html';
   }
-
-  if (path.includes('user') && !email) {
+  if (path.includes('user') && !user?.email) {
     location.href = 'index1.html';
   }
 
@@ -48,8 +48,11 @@ window.addEventListener('DOMContentLoaded', () => {
     confirmInput.addEventListener('input', validate);
 
     signupBtn.addEventListener('click', () => {
-      localStorage.setItem('email', emailInput.value);
-      localStorage.setItem('password', passwordInput.value);
+      const newUser = {
+        email: emailInput.value,
+        password: passwordInput.value
+      };
+      localStorage.setItem('user', JSON.stringify(newUser));
       location.href = 'user1.html';
     });
   }
@@ -57,17 +60,15 @@ window.addEventListener('DOMContentLoaded', () => {
   const saveBtn = document.getElementById('saveBtn');
   const exitBtn = document.getElementById('exitBtn');
 
-  if (document.getElementById('userEmail') && email) {
-    document.getElementById('userEmail').textContent = email;
+  if (document.getElementById('userEmail') && user?.email) {
+    document.getElementById('userEmail').textContent = user.email;
   }
 
-  if (saveBtn) {
+  if (saveBtn && user) {
     const fields = ['firstName', 'lastName', 'year', 'gender', 'phone', 'skype'];
-
     fields.forEach(f => {
       const el = document.getElementById(f);
-      const val = localStorage.getItem(f);
-      if (val) el.value = val;
+      if (user[f]) el.value = user[f];
     });
 
     saveBtn.addEventListener('click', () => {
@@ -106,19 +107,17 @@ window.addEventListener('DOMContentLoaded', () => {
       if (valid) {
         fields.forEach(f => {
           const el = document.getElementById(f);
-          localStorage.setItem(f, el.value);
+          user[f] = el.value;
           const cell = document.getElementById(f + 'Cell');
           if (cell) cell.textContent = el.value;
         });
+        localStorage.setItem('user', JSON.stringify(user));
         document.getElementById('userTable').style.display = 'table';
       }
     });
 
     exitBtn.addEventListener('click', () => {
-      const all = ['email', 'password', 'firstName', 'lastName', 'year', 'gender', 'phone', 'skype'];
-      all.forEach(name => {
-        localStorage.removeItem(name);
-      });
+      localStorage.removeItem('user');
       location.href = 'index1.html';
     });
   }
