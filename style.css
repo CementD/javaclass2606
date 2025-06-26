@@ -1,0 +1,77 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f0eb;
+  margin: 0;
+  padding: 20px;
+}
+
+.form-container {
+  max-width: 500px;
+  background: #f5f0eb;
+  margin: 0 auto;
+  padding: 25px;
+  border: 2px solid #999;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #888;
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1);
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  background: #ccc;
+  border: 1px solid #888;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #bbb;
+}
+
+.error-message {
+  color: darkred;
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+#userTable {
+  margin-top: 30px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#userTable th, #userTable td {
+  border: 1px solid #999;
+  padding: 10px;
+  text-align: left;
+}
+
+#userTable th {
+  background-color: #eae0d5;
+}

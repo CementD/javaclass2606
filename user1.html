@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Info</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="main1.js" defer></script>
+</head>
+<body>
+  <div class="form-container">
+    <div style="text-align: right; font-size: 14px;">
+      Hello, <span id="userEmail">user@example.com</span>! <a href="#" id="exitBtn">exit</a>
+    </div>
+    <h2>User info</h2>
+    <div class="form-group">
+      <label>First Name:</label>
+      <input type="text" id="firstName">
+      <div class="error-message" id="firstNameError"></div>
+    </div>
+    <div class="form-group">
+      <label>Last Name:</label>
+      <input type="text" id="lastName">
+      <div class="error-message" id="lastNameError"></div>
+    </div>
+    <div class="form-group">
+      <label>Year of birth:</label>
+      <input type="number" id="year">
+      <div class="error-message" id="yearError"></div>
+    </div>
+    <div class="form-group">
+      <label>Gender:</label>
+      <select id="gender">
+        <option value="">Choose gender</option>
+        <option>male</option>
+        <option>female</option>
+      </select>
+      <div class="error-message" id="genderError"></div>
+    </div>
+    <div class="form-group">
+      <label>Phone number:</label>
+      <input type="text" id="phone">
+      <div class="error-message" id="phoneError"></div>
+    </div>
+    <div class="form-group">
+      <label>Skype:</label>
+      <input type="text" id="skype">
+      <div class="error-message" id="skypeError"></div>
+    </div>
+    <button id="saveBtn">Save</button>
+  </div>
+
+  <table id="userTable" style="display:none;">
+    <tr><th>First Name</th><td id="firstNameCell"></td></tr>
+    <tr><th>Last Name</th><td id="lastNameCell"></td></tr>
+    <tr><th>Year</th><td id="yearCell"></td></tr>
+    <tr><th>Gender</th><td id="genderCell"></td></tr>
+    <tr><th>Phone</th><td id="phoneCell"></td></tr>
+    <tr><th>Skype</th><td id="skypeCell"></td></tr>
+  </table>
+</body>
+</html>
